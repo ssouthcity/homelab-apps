@@ -1,0 +1,65 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: blocky
+spec:
+  interval: 1h
+  serviceAccountName: flux
+  url: oci://ghcr.io/ssouthcity/charts/blocky
+  ref:
+    semver: ~0
+  layerSelector:
+    mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
+    operation: extract
+  verify:
+    provider: cosign
+    matchOIDCIdentity:
+      - issuer: ^https://token\.actions\.githubusercontent\.com$
+        subject: ^https://github\.com/ssouthcity/charts/\.github/workflows/publish-chart\.yaml@refs/heads/main$
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: blocky
+spec:
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: blocky
+  values:
+    service:
+      annotations:
+        metallb.io/loadBalancerIPs: 10.0.30.194
+    serviceMonitor:
+      enabled: true
+    config:
+      config.yml: |
+        upstreams:
+          groups:
+            default:
+              - 1.1.1.1
+              - 1.0.0.1
+              - 2606:4700:4700::1111
+              - 2606:4700:4700::1001
+
+        blocking:
+          denylists:
+            ads:
+              - https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/ultimate.txt
+              - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+          clientGroupsBlock:
+            default:
+              - ads
+        ports:
+          dns: 53
+          http: 4000
+
+        log:
+          level: error
+
+        prometheus:
+          enable: true
+          path: /metrics
+
+        caching:
+          prefetching: true
