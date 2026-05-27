@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: gluetun
+type: Opaque
+stringData:
+    WIREGUARD_PRIVATE_KEY: ENC[AES256_GCM,data:Uqoaho6+G5hsTYtFkYb2+4yqoGU8uy0OY+n3/1h19fgE9WMtQY8X1zHluaM=,iv:V5eRtoMyQgtyvXhKbgJ98A3QAh/G438jQ1bovuQtytE=,tag:VBffKEIK+c8in5d9a2PMzw==,type:str]
+    VPN_PORT_FORWARDING: ENC[AES256_GCM,data:v0c=,iv:oTEcUsDkZ/6jjwYa/NebesEEHl5b7xIg0CCFGSnuQ/w=,tag:4ZiuFMfqZG7h4B3odYDiUw==,type:str]
+    PORT_FORWARD_ONLY: ENC[AES256_GCM,data:nZM=,iv:aYayvMDdQCNm26490+QmZGhaLbh1iK5yuiCqoRNX6BM=,tag:n+dWoiBrEJr9JmDNm6vtUg==,type:str]
+sops:
+    age:
+        - recipient: age1txmpc45rsl3yg5hk5wkrkcwtvlqn8mx5n7q70nel5ggjnwd2ygvquggdx3
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBzRS9NVVRvM3V0SGMvKy9t
+            VDNheHBtaFN3SzNGL0FuRGt5NWlMS2NzQ2tZCjZGdlBHaGs4ZkM1R0pnKzRCd2Q3
+            UnUzUWVwcEV0RjBBalRRamZSNXZmL2cKLS0tIDRxRXBNaVV0VWptTkFRbmdPcE9H
+            TzRjQU5WZXdKQnI0UTdLMnMwMjVVOTAKiqqW2Wj3R7AtLRXBei1Ux2cV1Rt4gf9c
+            1ef0P4522RuDB5QsrZ9pa0c7lglsY9VWSvHzOyiVHkihccicp7DrqA==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2026-05-27T19:09:38Z"
+    mac: ENC[AES256_GCM,data:TVUDKmaVFoe0JJOfhj3Z7YVQNiggByj4sk2OFuY4+czhCXV4wscd1KePamH30ZXYhnGeBmCBqT1F8YaIbgE4ScEdqQT6b9RKmN6Lm12QO6lUm70qlG9RDRjWSQFKEdpeuqORzgDSouw72qDrk1SMTW66rKRGM4rAkbP97gIJ6G4=,iv:rZw864MwhVIj34U+p85cPX6yVmiOueTyCyGVHr0Sjsc=,tag:JFtJCnpGxY1pkPzJhneWCw==,type:str]
+    encrypted_regex: ^(data|stringData)$
+    version: 3.12.2
