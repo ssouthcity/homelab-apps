@@ -38,6 +38,8 @@ spec:
           value: "on"
         - name: PORT_FORWARD_ONLY
           value: "on"
+        - name: DNS_KEEP_NAMESERVER
+          value: "on"
         - name: FIREWALL_DEBUG
           value: "on"
         - name: FIREWALL_INPUT_PORTS
