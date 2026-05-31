@@ -27,6 +27,9 @@ spec:
     kind: OCIRepository
     name: prowlarr
   values:
+    envFrom:
+      - configMapRef:
+          name: prowlarr
     httpRoute:
       enabled: true
       annotations:
