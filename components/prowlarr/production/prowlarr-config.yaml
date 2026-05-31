@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: prowlarr
 data:
-  PROWLARR__AUTH__METHOD: Forms
+  PROWLARR__AUTH__METHOD: External
