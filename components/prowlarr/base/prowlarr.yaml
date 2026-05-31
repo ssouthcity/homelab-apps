@@ -30,6 +30,8 @@ spec:
     envFrom:
       - configMapRef:
           name: prowlarr
+    cnpg:
+      enabled: true
     httpRoute:
       enabled: true
       annotations:
