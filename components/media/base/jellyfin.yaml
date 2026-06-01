@@ -1,0 +1,38 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: jellyfin
+spec:
+  interval: 1h
+  serviceAccountName: flux
+  url: oci://ghcr.io/ssouthcity/mirror/charts/jellyfin
+  ref:
+    semver: ~3
+  layerSelector:
+    mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
+    operation: extract
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: jellyfin
+spec:
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: jellyfin
+  values:
+    httpRoute:
+      enabled: true
+      annotations:
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/name: Jellyfin
+        gethomepage.dev/description: Media Server
+        gethomepage.dev/group: Media
+        gethomepage.dev/icon: jellyfin.png
+        gethomepage.dev/pod-selector: "app.kubernetes.io/instance=jellyfin"
+      parentRefs:
+        - name: http
+          namespace: kgateway
+      hostnames:
+        - jellyfin.southcity.dev
