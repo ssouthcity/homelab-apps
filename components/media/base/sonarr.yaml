@@ -1,0 +1,48 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: sonarr
+spec:
+  interval: 1h
+  serviceAccountName: flux
+  url: oci://ghcr.io/ssouthcity/charts/sonarr
+  ref:
+    semver: ~0
+  layerSelector:
+    mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
+    operation: extract
+  verify:
+    provider: cosign
+    matchOIDCIdentity:
+      - issuer: ^https://token\.actions\.githubusercontent\.com$
+        subject: ^https://github\.com/ssouthcity/charts/\.github/workflows/publish-chart\.yaml@refs/heads/main$
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: sonarr
+spec:
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: sonarr
+  values:
+    envFrom:
+      - configMapRef:
+          name: sonarr
+    cnpg:
+      enabled: true
+    httpRoute:
+      enabled: true
+      annotations:
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/name: sonarr
+        gethomepage.dev/description: PVR for Usenet and BitTorrent
+        gethomepage.dev/group: Media
+        gethomepage.dev/icon: sonarr.png
+        gethomepage.dev/pod-selector: "app.kubernetes.io/instance=sonarr"
+      parentRefs:
+        - name: http
+          namespace: kgateway
+      hostnames:
+        - sonarr.southcity.dev

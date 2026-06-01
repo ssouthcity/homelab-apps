@@ -20,7 +20,7 @@ jobs:
       matrix:
         component:
           - blocky
-          - prowlarr
+          - media
           - qbittorrent
     steps:
       - name: Checkout
