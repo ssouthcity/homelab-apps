@@ -36,16 +36,13 @@ spec:
           namespace: kgateway
       hostnames:
         - jellyfin.southcity.dev
-    persistence:
-      media:
-        enabled: false
     volumes:
-      - name: media
-        nfs:
-          server: 10.0.10.134
-          path: /var/nfs/shared/Media_Server/media
+      - name: library
+        persistentVolumeClaim:
+          claimName: media
           readOnly: true
     volumeMounts:
-      - name: media
-        mountPath: /media
+      - name: library
+        mountPath: /library
+        subPath: media
         readOnly: true
