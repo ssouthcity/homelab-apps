@@ -4,4 +4,5 @@ resources:
   - ./jellyfin.yaml
   - ./prowlarr.yaml
   - ./pvc.yaml
+  - ./qbittorrent.yaml
   - ./sonarr.yaml
