@@ -5,4 +5,5 @@ resources:
   - ./prowlarr.yaml
   - ./pvc.yaml
   - ./qbittorrent.yaml
+  - ./seerr.yaml
   - ./sonarr.yaml
