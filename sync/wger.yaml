@@ -1,0 +1,7 @@
+apiVersion: mirror.fluxcd.io/v1alpha1
+kind: Config
+charts:
+  - name: wger
+    source: https://wger-project.github.io/helm-charts
+    destination: oci://ghcr.io/ssouthcity/mirror/charts
+    limit: 3

@@ -1,0 +1,29 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: wger
+spec:
+  interval: 1h
+  serviceAccountName: flux
+  url: oci://ghcr.io/ssouthcity/mirror/charts/wger
+  ref:
+    semver: ~0
+  layerSelector:
+    mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
+    operation: extract
+  verify:
+    provider: cosign
+    matchOIDCIdentity:
+      - issuer: ^https://token\.actions\.githubusercontent\.com$
+        subject: ^https://github\.com/ssouthcity/charts/\.github/workflows/publish-chart\.yaml@refs/heads/main$
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: wger
+spec:
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: wger
+  values: {}
