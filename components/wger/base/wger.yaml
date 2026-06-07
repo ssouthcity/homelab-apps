@@ -22,3 +22,26 @@ spec:
     kind: OCIRepository
     name: wger
   values: {}
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: wger
+  annotations:
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: wger
+    gethomepage.dev/description: Workout Tracker
+    gethomepage.dev/group: Fitness
+    gethomepage.dev/icon: wger.png
+    gethomepage.dev/pod-selector: ""
+spec:
+  parentRefs:
+    - name: http
+      namespace: kgateway
+  hostnames:
+    - wger.southcity.dev
+  rules:
+    - backendRefs:
+        - name: wger-http
+          port: 8000
+          weight: 1
