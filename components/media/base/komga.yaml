@@ -41,3 +41,11 @@ spec:
           namespace: kgateway
       hostnames:
         - komga.southcity.dev
+    volumes:
+      - name: media
+        persistentVolumeClaim:
+          claimName: media
+    volumeMounts:
+      - name: media
+        subPath: media/manga
+        mountPath: /data
