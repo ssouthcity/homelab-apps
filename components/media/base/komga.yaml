@@ -1,0 +1,43 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: komga
+spec:
+  interval: 1h
+  serviceAccountName: flux
+  url: oci://ghcr.io/ssouthcity/charts/komga
+  ref:
+    semver: ~0
+  layerSelector:
+    mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
+    operation: extract
+  verify:
+    provider: cosign
+    matchOIDCIdentity:
+      - issuer: ^https://token\.actions\.githubusercontent\.com$
+        subject: ^https://github\.com/ssouthcity/charts/\.github/workflows/publish-chart\.yaml@refs/heads/main$
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: komga
+spec:
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: komga
+  values:
+    httpRoute:
+      enabled: true
+      annotations:
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/name: Komga
+        gethomepage.dev/description: Media Server for Comics
+        gethomepage.dev/group: Media
+        gethomepage.dev/icon: komga.png
+        gethomepage.dev/pod-selector: "app.kubernetes.io/instance=komga"
+      parentRefs:
+        - name: http
+          namespace: kgateway
+      hostnames:
+        - komga.southcity.dev
