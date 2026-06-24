@@ -40,6 +40,8 @@ spec:
           value: "on"
         - name: DNS_KEEP_NAMESERVER
           value: "on"
+        - name: SERVER_CATEGORIES
+          value: "p2p"
       envFrom:
         - secretRef:
             name: gluetun
