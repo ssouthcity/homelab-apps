@@ -62,4 +62,4 @@ spec:
     volumeMounts:
       - name: media
         mountPath: /downloads
-        subPath: downloads
+        subPath: torrents
