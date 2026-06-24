@@ -40,10 +40,6 @@ spec:
           value: "on"
         - name: DNS_KEEP_NAMESERVER
           value: "on"
-        - name: FIREWALL_DEBUG
-          value: "on"
-        - name: FIREWALL_INPUT_PORTS
-          value: "8080"
       envFrom:
         - secretRef:
             name: gluetun
