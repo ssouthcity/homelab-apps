@@ -28,7 +28,7 @@ spec:
     name: qbittorrent
   values:
     gluetun:
-      existingSecret: gluetun
+      enabled: true
       env:
         - name: VPN_SERVICE_PROVIDER
           value: "protonvpn"
@@ -44,6 +44,9 @@ spec:
           value: "on"
         - name: FIREWALL_INPUT_PORTS
           value: "8080"
+      envFrom:
+        - secretRef:
+            name: gluetun
     httpRoute:
       enabled: true
       annotations:
@@ -58,3 +61,11 @@ spec:
           namespace: kgateway
       hostnames:
         - qbittorrent.southcity.dev
+    volumes:
+      - name: media
+        persistentVolumeClaim:
+          claimName: media
+    volumeMounts:
+      - name: media
+        mountPath: /downloads
+        subPath: downloads
