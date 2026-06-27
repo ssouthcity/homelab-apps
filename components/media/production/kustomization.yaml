@@ -5,3 +5,4 @@ resources:
   - ./gluetun.sops.yaml
   - ./prowlarr-config.yaml
   - ./sonarr-config.yaml
+  - ./sonarr-secret.sops.yaml
