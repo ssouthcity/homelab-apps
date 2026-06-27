@@ -31,7 +31,7 @@ spec:
       - configMapRef:
           name: sonarr
       - secretRef:
-          name: sonarr
+          name: sonarr-auth
     cnpg:
       enabled: true
     httpRoute:
