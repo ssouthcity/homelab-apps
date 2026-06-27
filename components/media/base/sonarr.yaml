@@ -30,6 +30,8 @@ spec:
     envFrom:
       - configMapRef:
           name: sonarr
+      - secretRef:
+          name: sonarr
     cnpg:
       enabled: true
     httpRoute:
