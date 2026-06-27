@@ -48,3 +48,10 @@ spec:
           namespace: kgateway
       hostnames:
         - sonarr.southcity.dev
+    volumes:
+      - name: media
+        persistentVolumeClaim:
+          claimName: media
+    volumeMounts:
+      - name: media
+        mountPath: /data
