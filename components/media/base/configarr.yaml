@@ -31,5 +31,5 @@ spec:
       - name: SONARR_API_KEY
         valueFrom:
           secretKeyRef:
-            name: sonarr
+            name: sonarr-auth
             key: SONARR__AUTH__APIKEY
