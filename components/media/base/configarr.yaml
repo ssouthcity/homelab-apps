@@ -64,6 +64,10 @@ spec:
             root_folders:
               - /data/media/anime
 
+            include:
+              - template: 387e6278d8e06083d813358762e0ac63
+                source: TRASH
+
             download_clients:
               data:
                 - name: qBittorrent
@@ -93,6 +97,10 @@ spec:
 
             root_folders:
               - /data/media/tv
+
+            include:
+              - template: bef99584217af744e404ed44a33af589
+                source: TRASH
 
             download_clients:
               data:
