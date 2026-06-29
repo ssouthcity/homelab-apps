@@ -6,6 +6,8 @@ resources:
   - ./prowlarr-config.yaml
   - ./qbittorrent-auth.sops.yaml
   - ./sonarr-anime-auth.sops.yaml
+  - ./sonarr-anime-config.yaml
   - ./sonarr-config.yaml
   - ./sonarr-secret.sops.yaml
   - ./sonarr-tv-auth.sops.yaml
+  - ./sonarr-tv-config.yaml
