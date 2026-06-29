@@ -33,6 +33,16 @@ spec:
           secretKeyRef:
             name: sonarr-auth
             key: SONARR__AUTH__APIKEY
+      - name: SONARR_ANIME_API_KEY
+        valueFrom:
+          secretKeyRef:
+            name: sonarr-anime-auth
+            key: SONARR__AUTH__APIKEY
+      - name: SONARR_TV_API_KEY
+        valueFrom:
+          secretKeyRef:
+            name: sonarr-tv-auth
+            key: SONARR__AUTH__APIKEY
       - name: QBITTORRENT_USERNAME
         valueFrom:
           secretKeyRef:
@@ -49,7 +59,7 @@ spec:
         recyclarrConfigUrl: https://github.com/recyclarr/config-templates
 
         sonarr:
-          sonarr-anime:
+          sonarr:
             base_url: http://sonarr:8989
             api_key: !env SONARR_API_KEY
 
@@ -84,4 +94,65 @@ spec:
                     tv_category: anime
               delete_unmanaged:
                 enabled: true
+
+          sonarr-anime:
+            base_url: http://sonarr-anime:8989
+            api_key: !env SONARR_ANIME_API_KEY
+
+            quality_definitions:
+              type: anime
+
+            root_folders:
+              - /data/media/anime
+
+            download_clients:
+              data:
+                - name: qBittorrent
+                  type: qbittorrent
+                  enable: true
+                  priority: 1
+                  remove_completed_downloads: true
+                  remove_failed_downloads: true
+                  tags: []
+                  fields:
+                    host: qbittorrent
+                    port: 8080
+                    use_ssl: false
+                    url_base: /
+                    username: !env QBITTORRENT_USERNAME
+                    password: !env QBITTORRENT_PASSWORD
+                    tv_category: anime
+              delete_unmanaged:
+                enabled: true
+
+          sonarr-tv:
+            base_url: http://sonarr-tv:8989
+            api_key: !env SONARR_TV_API_KEY
+
+            quality_definition:
+              type: series
+
+            root_folders:
+              - /data/media/tv
+
+            download_clients:
+              data:
+                - name: qBittorrent
+                  type: qbittorrent
+                  enable: true
+                  priority: 1
+                  remove_completed_downloads: true
+                  remove_failed_downloads: true
+                  tags: []
+                  fields:
+                    host: qbittorrent
+                    port: 8080
+                    use_ssl: false
+                    url_base: /
+                    username: !env QBITTORRENT_USERNAME
+                    password: !env QBITTORRENT_PASSWORD
+                    tv_category: tv
+              delete_unmanaged:
+                enabled: true
+
         radarr: {}
