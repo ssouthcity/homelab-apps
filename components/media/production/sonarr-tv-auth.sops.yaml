@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: sonarr-tv-auth
+type: Opaque
+stringData:
+    SONARR__AUTH__APIKEY: ENC[AES256_GCM,data:qDAyNjO4DeYMsiAEWEKkWAdtgw6utriy1lPtvQb6jPc=,iv:ZRoKFBuKNvCVQNrDHZO8W7gVDoxmLJoEKH+Dg8E9XT4=,tag:QeFqi/kHvBIHrAsoYhkv5Q==,type:str]
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA5OWNKOUdCcnR0TGFDS2FU
+            c2kvbzNkbkh6Q1ZaVkVnY2JKbjQxTU93WTFzCm9GUkI1NFpBczN2akR5ZXVyREx5
+            RWE3d0l3UE40V1ZKOEJSTDFJNUJHVFkKLS0tIHBjRlNsbXd4dmVHS1RQd2FYQnBy
+            b1c1Q1l3NFhJMlk4bC9WbTZDTVRXbWcKBXeXm5v9bR3hd+7Ip4CB5k7uLBoUgwPW
+            fsEwiTbEYbNlRMoSIDl6kPmuB+0z0bHs6rhbqiYAPOG/OKOysLeEHg==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age1txmpc45rsl3yg5hk5wkrkcwtvlqn8mx5n7q70nel5ggjnwd2ygvquggdx3
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-06-29T11:12:41Z"
+    mac: ENC[AES256_GCM,data:ZNuLaMp7C29zX+Tpd2X4cYh6Pmce8Fwt8V3mc6pmrWAu2/k2ZN/crnXDXdQpwnxp95LbqaHq4fZg3q8+oi1e74h1P8iMSH0cb5Y9Iwk1zNjPcpDXw97jLGBsWwxE9yLyQOnCMoG1oYhzRLgIFpiJwrfPUpUAFfOh0ni5ZLiaj8o=,iv:tVAYSYahCm/I7LfU6dxdrW1dJTcttCL0PG8hEARCSz4=,tag:1+Lc+I5oIbGwcsIqqaU58A==,type:str]
+    version: 3.13.1

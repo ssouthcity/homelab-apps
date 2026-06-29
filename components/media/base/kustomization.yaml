@@ -8,4 +8,6 @@ resources:
   - ./pvc.yaml
   - ./qbittorrent.yaml
   - ./seerr.yaml
+  - ./sonarr-anime.yaml
+  - ./sonarr-tv.yaml
   - ./sonarr.yaml

@@ -5,5 +5,7 @@ resources:
   - ./gluetun.sops.yaml
   - ./prowlarr-config.yaml
   - ./qbittorrent-auth.sops.yaml
+  - ./sonarr-anime-auth.sops.yaml
   - ./sonarr-config.yaml
   - ./sonarr-secret.sops.yaml
+  - ./sonarr-tv-auth.sops.yaml
