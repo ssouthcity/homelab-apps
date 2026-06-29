@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: qbittorrent-auth
+type: Opaque
+stringData:
+    username: ENC[AES256_GCM,data:A71eZ5M=,iv:I2VWNPJHgDtY2/W9KOyBtxcp38X4SW+zN/WZbJaQc9E=,tag:7NLOIyYaRwrGc069vogzSg==,type:str]
+    password: ENC[AES256_GCM,data:XYknAMFgsG8J7/zK2Ide21oMpFQ=,iv:ZHPZypYWiFeZEFBoxA8I4W+asKLW+8Lj66sbvcpKRcM=,tag:z7exZhIetJvY4iKuQbqlww==,type:str]
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBpRjBYRnI1VVhHS2xDS2ll
+            QUh5RkprdkNYblBPZFM1T2M0dStZK0NIaFhZCjZrdk42KzZBMnBtNEdLYjRXTnMz
+            NVFieEEycklndzRaYUQ2amFPSldMUEUKLS0tIEtrak5TaklvWEhHbXBieVA4d3Q4
+            K3h3TUx6VjdCY0xhcnFWSWlFTWJiWWsKzeUb5s/pafjOD/WLjIMt/VaND85Gc2qr
+            g9aGSNYOl1wQouSysKfUGTWyAsniuiBmLeTctd1BSHQpJUzN6vfZXQ==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age1txmpc45rsl3yg5hk5wkrkcwtvlqn8mx5n7q70nel5ggjnwd2ygvquggdx3
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-06-29T00:00:31Z"
+    mac: ENC[AES256_GCM,data:rGlYFUuahOtJBP7vbYNWECr8W+1swKi7yKpZXKRdiQZ8YTlr6USEe7NsyoVAaF+gAejrC5ZMpyZ8d5KoLZNv6WnJITZ4wro3onj8+uCy6rOgHZlk3t55UGmFSbqV+Xx33vWUxEkR2jqT3mcb8YFy/3Aby5tqWpmAieM7xHYLbKk=,iv:3GlohXAO2QChCrDygJqXNsRSs/kzFMUt6rUrfD+QXD0=,tag:zXtALwcm7gcNDutl2yaFbg==,type:str]
+    version: 3.13.1
