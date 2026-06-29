@@ -10,4 +10,3 @@ resources:
   - ./seerr.yaml
   - ./sonarr-anime.yaml
   - ./sonarr-tv.yaml
-  - ./sonarr.yaml

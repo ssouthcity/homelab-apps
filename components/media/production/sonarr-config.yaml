@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: sonarr
-data:
-  SONARR__AUTH__METHOD: External

@@ -28,11 +28,6 @@ spec:
     name: configarr
   values:
     env:
-      - name: SONARR_API_KEY
-        valueFrom:
-          secretKeyRef:
-            name: sonarr-auth
-            key: SONARR__AUTH__APIKEY
       - name: SONARR_ANIME_API_KEY
         valueFrom:
           secretKeyRef:
@@ -59,42 +54,6 @@ spec:
         recyclarrConfigUrl: https://github.com/recyclarr/config-templates
 
         sonarr:
-          sonarr:
-            base_url: http://sonarr:8989
-            api_key: !env SONARR_API_KEY
-
-            quality_definition:
-              type: series
-
-            include:
-              - template: sonarr-quality-definition-series
-              - template: sonarr-v4-quality-profile-web-1080p
-              - template: sonarr-v4-custom-formats-web-1080p
-              - template: sonarr-v4-quality-profile-web-2160p
-              - template: sonarr-v4-custom-formats-web-2160p
-
-            custom_formats: []
-
-            download_clients:
-              data:
-                - name: qBittorrent
-                  type: qbittorrent
-                  enable: true
-                  priority: 1
-                  remove_completed_downloads: true
-                  remove_failed_downloads: true
-                  tags: []
-                  fields:
-                    host: qbittorrent
-                    port: 8080
-                    use_ssl: false
-                    url_base: /
-                    username: !env QBITTORRENT_USERNAME
-                    password: !env QBITTORRENT_PASSWORD
-                    tv_category: anime
-              delete_unmanaged:
-                enabled: true
-
           sonarr-anime:
             base_url: http://sonarr-anime:8989
             api_key: !env SONARR_ANIME_API_KEY
