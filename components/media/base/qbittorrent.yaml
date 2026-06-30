@@ -61,5 +61,5 @@ spec:
           claimName: media
     volumeMounts:
       - name: media
-        mountPath: /downloads
+        mountPath: /data/torrents
         subPath: torrents
