@@ -61,12 +61,13 @@ spec:
             quality_definitions:
               type: anime
 
+            include:
+              - template: sonarr-quality-definition-anime
+              - template: sonarr-v4-quality-profile-anime
+              - template: sonarr-v4-custom-formats-anime
+
             root_folders:
               - /data/media/anime
-
-            include:
-              - template: 387e6278d8e06083d813358762e0ac63
-                source: TRASH
 
             download_clients:
               data:
@@ -95,12 +96,13 @@ spec:
             quality_definition:
               type: series
 
+            include:
+              - template: sonarr-quality-definition-series
+              - template: sonarr-v4-quality-profile-web-1080p
+              - template: sonarr-v4-custom-formats-web-1080p
+
             root_folders:
               - /data/media/tv
-
-            include:
-              - template: bef99584217af744e404ed44a33af589
-                source: TRASH
 
             download_clients:
               data:
