@@ -77,7 +77,7 @@ spec:
               seriesFolderFormat: "{Series CleanTitleWithoutYear} {(Series Year)} [tvdbid-{TvdbId}]"
               seasonFolderFormat: "Season {season:00}"
               specialsFolderFormat: "Specials"
-              multiEpisodeStyle: 1
+              multiEpisodeStyle: 5
 
             download_clients:
               data:
@@ -122,7 +122,7 @@ spec:
               seriesFolderFormat: "{Series CleanTitleWithoutYear} {(Series Year)} [tvdbid-{TvdbId}]"
               seasonFolderFormat: "Season {season:00}"
               specialsFolderFormat: "Specials"
-              multiEpisodeStyle: 1
+              multiEpisodeStyle: 5
 
             download_clients:
               data:
