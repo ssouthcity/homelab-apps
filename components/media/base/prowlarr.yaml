@@ -45,4 +45,4 @@ spec:
         - name: http
           namespace: kgateway
       hostnames:
-        - prowlarr.southcity.dev
+        - prowlarr.${CLUSTER_DOMAIN}

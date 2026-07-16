@@ -40,7 +40,7 @@ spec:
         - name: http
           namespace: kgateway
       hostnames:
-        - komga.southcity.dev
+        - komga.${CLUSTER_DOMAIN}
     volumes:
       - name: media
         persistentVolumeClaim:

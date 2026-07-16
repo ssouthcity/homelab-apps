@@ -39,7 +39,7 @@ spec:
     - name: http
       namespace: kgateway
   hostnames:
-    - wger.southcity.dev
+    - wger.${CLUSTER_DOMAIN}
   rules:
     - backendRefs:
         - name: wger-http

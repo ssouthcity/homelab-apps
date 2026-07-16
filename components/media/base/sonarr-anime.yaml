@@ -47,7 +47,7 @@ spec:
         - name: http
           namespace: kgateway
       hostnames:
-        - sonarr-anime.southcity.dev
+        - sonarr-anime.${CLUSTER_DOMAIN}
     volumes:
       - name: media
         persistentVolumeClaim:

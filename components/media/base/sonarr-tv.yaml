@@ -47,7 +47,7 @@ spec:
         - name: http
           namespace: kgateway
       hostnames:
-        - sonarr-tv.southcity.dev
+        - sonarr-tv.${CLUSTER_DOMAIN}
     volumes:
       - name: media
         persistentVolumeClaim:
