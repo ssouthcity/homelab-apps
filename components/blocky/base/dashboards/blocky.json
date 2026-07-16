@@ -293,7 +293,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "$${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2049,8 +2049,8 @@
     "list": [
       {
         "current": {
-          "text": "${VAR_BLOCKY_URL}",
-          "value": "${VAR_BLOCKY_URL}"
+          "text": "$${VAR_BLOCKY_URL}",
+          "value": "$${VAR_BLOCKY_URL}"
         },
         "hide": 2,
         "label": "blocky API URL",
